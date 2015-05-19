@@ -5,5 +5,8 @@ install:
   - "pip install -r --allow-external dirspec pkg/requirements.pip"
   - "pip install -r pkg/requirements-testing.pip"
 script: "python setup.py test"
+after_success:
+  coveralls
+
 notifications:
   email: false
