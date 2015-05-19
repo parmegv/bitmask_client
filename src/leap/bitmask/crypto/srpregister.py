@@ -205,6 +205,22 @@ class SRPRegister(QtCore.QObject):
         else:
             self._signaler.signal(self._signaler.srp_registration_failed)
 
+    @property
+    def registration_uri(self):
+        """
+        Return the uri used for registration.
+        :rtype: str
+        """
+        return self._srp_register._get_registration_uri()
+
+    @property
+    def port(self):
+        """
+        Return the port used for registration.
+        :rtype: str
+        """
+        return self._srp_register._port
+
 
 if __name__ == "__main__":
     logger = logging.getLogger(name='leap')

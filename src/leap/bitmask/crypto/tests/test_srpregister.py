@@ -112,7 +112,7 @@ class SRPTestCase(unittest.TestCase):
                 "Could not load test provider config")
 
         register = srpregister.SRPRegister(provider_config=provider)
-        self.assertEquals(register._port, "443")
+        self.assertEquals(register.port, "443")
 
     @deferred()
     def test_wrong_cert(self):
@@ -191,9 +191,10 @@ class SRPTestCase(unittest.TestCase):
 
         # ... and we check that we're correctly taking the HTTPS protocol
         # instead
-        reg_uri = register._get_registration_uri()
+        reg_uri = register.registration_uri
         self.assertEquals(reg_uri, HTTPS_URI)
-        register._get_registration_uri = MagicMock(return_value=HTTPS_URI)
+        # XXX hack. this shouldn't mess with implementation details!
+        register._srp_register._get_registration_uri = MagicMock(return_value=HTTPS_URI)
         d = threads.deferToThread(register.register_user, "test_failhttp",
                                   "barpass")
         d.addCallback(self.assertTrue)
