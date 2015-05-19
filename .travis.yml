@@ -2,7 +2,7 @@ language: python
 python:
   - 2.7
 install:
-  - "pip install --allow-external dirspec --allowed-unverified dirspec -r pkg/requirements.pip"
+  - "pip install --allow-external dirspec --allow-unverified dirspec -r pkg/requirements.pip"
   - "pip install -r pkg/requirements-testing.pip"
 script: "python setup.py test"
 after_success:
