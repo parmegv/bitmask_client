@@ -5,3 +5,5 @@ install:
   - "pip install -r pkg/requirements.txt"
   - "pip install -r pkg/requirements-testing.pip"
 script: "python setup.py test"
+notifications:
+  email: false
