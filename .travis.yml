@@ -2,7 +2,7 @@ language: python
 python:
   - "2.7"
 install:
-  - "pip install -r pkg/requirements.txt"
+  - "pip install -r pkg/requirements.pip"
   - "pip install -r pkg/requirements-testing.pip"
 script: "python setup.py test"
 notifications:
