@@ -1,6 +1,7 @@
 language: python
 python:
-  - "2.7"
+  - 2.7
+  - pypy
 install:
   - "pip install -r pkg/requirements.pip"
   - "pip install -r pkg/requirements-testing.pip"
