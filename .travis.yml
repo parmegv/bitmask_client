@@ -16,7 +16,6 @@ install:
   - python ~/virtualenv/python${TRAVIS_PYTHON_VERSION}/bin/pyside_postinstall.py -install
 
 script:
-  - sh pkg/postmkenv.sh
   - python setup.py test
 
 after_success:
